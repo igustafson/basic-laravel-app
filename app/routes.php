@@ -11,8 +11,4 @@
 |
 */
 
-Route::get('/', function()
-{
-  $stores = Store::with('company')->paginate(50);
-  return View::make('stores')->with('stores', $stores);
-});
+Route::get('/', 'StoreController@showList');
