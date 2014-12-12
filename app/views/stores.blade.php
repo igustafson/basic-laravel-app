@@ -34,4 +34,6 @@
 
     </table>
 
+    {{ $stores->links() }}
+
 @stop

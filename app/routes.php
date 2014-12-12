@@ -13,6 +13,6 @@
 
 Route::get('/', function()
 {
-  $stores = Store::with('company')->get();
+  $stores = Store::with('company')->paginate(50);
   return View::make('stores')->with('stores', $stores);
 });
