@@ -25,10 +25,162 @@
       <thead>
         <tr>
           <th>Company Name</th>
-          <th>Address</th>
-          <th>City</th>
-          <th>State</th>
-          <th>Zip Code</th>
+          <th>
+            @if ($sort_field == 'address' && $sort_order == 'asc')
+              <span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span>
+              {{
+                link_to_action(
+                  'StoreController@showList',
+                  'Address',
+                  array(
+                    'sort_field' => 'address',
+                    'sort_order' => 'desc'
+                  )+Input::except(array('sort_field','sort_order')),
+                  array('class'=>'asc')
+                )
+              }}
+            @elseif ($sort_field == 'address')
+              <span class="glyphicon glyphicon-sort-by-alphabet-alt" aria-hidden="true"></span>
+              {{
+                link_to_action(
+                  'StoreController@showList',
+                  'Address',
+                  array(
+                    'sort_field' => 'address',
+                    'sort_order' => 'asc'
+                  )+Input::except(array('sort_field','sort_order')),
+                  array('class'=>'desc')
+                )
+              }}
+            @else {{
+              link_to_action(
+                'StoreController@showList',
+                'Address',
+                array(
+                  'sort_field' => 'address',
+                  'sort_order' => 'asc'
+                )+Input::except(array('sort_field','sort_order'))
+              )
+            }}
+            @endif
+          </th>
+          <th>
+            @if ($sort_field == 'city' && $sort_order == 'asc')
+              <span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span>
+              {{
+                link_to_action(
+                  'StoreController@showList',
+                  'City',
+                  array(
+                    'sort_field' => 'city',
+                    'sort_order' => 'desc'
+                  )+Input::except(array('sort_field','sort_order')),
+                  array('class'=>'asc')
+                )
+              }}
+            @elseif ($sort_field == 'city')
+              <span class="glyphicon glyphicon-sort-by-alphabet-alt" aria-hidden="true"></span>
+              {{
+                link_to_action(
+                  'StoreController@showList',
+                  'City',
+                  array(
+                    'sort_field' => 'city',
+                    'sort_order' => 'asc'
+                  )+Input::except(array('sort_field','sort_order')),
+                  array('class'=>'desc')
+                )
+              }}
+            @else {{
+              link_to_action(
+                'StoreController@showList',
+                'City',
+                array(
+                  'sort_field' => 'city',
+                  'sort_order' => 'asc'
+                )+Input::except(array('sort_field','sort_order'))
+              )
+            }}
+            @endif
+          </th>
+          <th>
+            @if ($sort_field == 'state' && $sort_order == 'asc')
+              <span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span>
+              {{
+                link_to_action(
+                  'StoreController@showList',
+                  'State',
+                  array(
+                    'sort_field' => 'state',
+                    'sort_order' => 'desc'
+                  )+Input::except(array('sort_field','sort_order')),
+                  array('class'=>'asc')
+                )
+              }}
+            @elseif ($sort_field == 'state')
+              <span class="glyphicon glyphicon-sort-by-alphabet-alt" aria-hidden="true"></span>
+              {{
+                link_to_action(
+                  'StoreController@showList',
+                  'State',
+                  array(
+                    'sort_field' => 'state',
+                    'sort_order' => 'asc'
+                  )+Input::except(array('sort_field','sort_order')),
+                  array('class'=>'desc')
+                )
+              }}
+            @else {{
+              link_to_action(
+                'StoreController@showList',
+                'State',
+                array(
+                  'sort_field' => 'state',
+                  'sort_order' => 'asc'
+                )+Input::except(array('sort_field','sort_order'))
+              )
+            }}
+            @endif
+          </th>
+          <th>
+            @if ($sort_field == 'postal_code' && $sort_order == 'asc')
+              <span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span>
+              {{
+                link_to_action(
+                  'StoreController@showList',
+                  'Zip Code',
+                  array(
+                    'sort_field' => 'postal_code',
+                    'sort_order' => 'desc'
+                  )+Input::except(array('sort_field','sort_order')),
+                  array('class'=>'asc')
+                )
+              }}
+            @elseif ($sort_field == 'postal_code')
+              <span class="glyphicon glyphicon-sort-by-alphabet-alt" aria-hidden="true"></span>
+              {{
+                link_to_action(
+                  'StoreController@showList',
+                  'Zip Code',
+                  array(
+                    'sort_field' => 'postal_code',
+                    'sort_order' => 'asc'
+                  )+Input::except(array('sort_field','sort_order')),
+                  array('class'=>'desc')
+                )
+              }}
+            @else {{
+              link_to_action(
+                'StoreController@showList',
+                'Zip Code',
+                array(
+                  'sort_field' => 'postal_code',
+                  'sort_order' => 'asc'
+                )+Input::except(array('sort_field','sort_order'))
+              )
+            }}
+            @endif
+          </th>
         </tr>
       </thead>
 
