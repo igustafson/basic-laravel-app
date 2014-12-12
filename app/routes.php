@@ -13,5 +13,6 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+  $stores = Store::all();
+  return View::make('stores')->with('stores', $stores);
 });
