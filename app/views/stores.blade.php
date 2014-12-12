@@ -30,7 +30,7 @@
       @forelse($stores as $store)
         <tr>
           <td>{{{ is_null($store->company) ? '' : $store->company->name }}}</td>
-          <td>{{{ $store->address }}}</td>
+          <td>{{{ str_limit($store->address, 50) }}}</td>
           <td>{{{ $store->city }}}</td>
           <td>{{{ $store->state }}}</td>
           <td>{{{ $store->postal_code }}}</td>
