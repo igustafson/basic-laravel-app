@@ -4,6 +4,11 @@
 
     <h2>Stores</h2>
 
+    {{ Form::open(array('action' => 'StoreController@showList', 'method' => 'get')) }}
+      {{ Form::select('company_id', array('all' => '- All Companies -')+$company_options, $list_filters['company_id']) }}
+      {{ Form::submit('Apply Filters') }}
+    {{ Form::close() }}
+
     <table>
 
       <thead>
@@ -34,6 +39,6 @@
 
     </table>
 
-    {{ $stores->links() }}
+    {{ $stores->appends(Input::except(array('page')))->links() }}
 
 @stop
