@@ -5,7 +5,12 @@
     <h2>Stores</h2>
 
     {{ Form::open(array('action' => 'StoreController@showList', 'method' => 'get')) }}
-      {{ Form::select('company_id', array('all' => '- All Companies -')+$company_options, $list_filters['company_id']) }}
+      {{ Form::label('company_id', 'Company') }}
+      {{ Form::select('company_id', array('all' => '- All -')+$company_options, $list_filters['company_id']) }}
+      {{ Form::label('city', 'Search by City') }}
+      {{ Form::text('city', $list_filters['city']) }}
+      {{ Form::label('address', 'Search by Address') }}
+      {{ Form::text('address', $list_filters['address']) }}
       {{ Form::submit('Apply Filters') }}
     {{ Form::close() }}
 

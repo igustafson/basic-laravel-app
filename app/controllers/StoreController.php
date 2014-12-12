@@ -4,9 +4,9 @@ class StoreController extends BaseController {
 
   public function showList()
   {
-    $list_filters = array();
-
     $stores = Store::with('company');
+
+    $list_filters = array();
 
     $company_id = Input::get('company_id', 'all');
     if ($company_id != 'all') {
@@ -15,6 +15,16 @@ class StoreController extends BaseController {
     }
     else {
       $list_filters['company_id'] = 'all';
+    }
+
+    $list_filters['city'] = Input::get('city');
+    if ($list_filters['city']) {
+      $stores->searchByCity($list_filters['city']);
+    }
+
+    $list_filters['address'] = Input::get('address');
+    if ($list_filters['address']) {
+      $stores->searchByAddress($list_filters['address']);
     }
 
     $stores = $stores->paginate(50);
